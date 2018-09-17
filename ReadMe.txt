@@ -15,3 +15,8 @@ CRISPRdb hosts genomes without CRISPRs, with confirmed CRISPRs, and with "questi
 Using Selenium webdriver, I selected all of the table entries from the data base that had CRISPRs but did not have questionable structures. This allowed me to download the file CRISPRs.XML, which stores information about the CRISPR arrays as XML objects.
 
 #Part 2: Extracting Accession numbers and Querying RefSec
+###Dependancies:
+* Python 3.x
+* lxml
+
+XMLAccessionExtractor.py is a script which uses the lxml package to parse the large xml file we obtained from part 1. The script extracts sequence objects from the XML file which contain 1 or more CRISPRs and creates a new XML file comprised of only those sequences. Taxa information is not important for the end of this project and was therefore excluded. The script then exctracts the RefSeq accession numbers of every genome sequence saved in the new XML file, writing them to a text file which is compatible for Batch Search from NCBI.
